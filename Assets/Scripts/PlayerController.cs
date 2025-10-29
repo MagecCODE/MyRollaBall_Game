@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 10.0f;
+    public TextMeshProUGUI scoreText;
+    private int score =0;
+    public float speed = 8.0f;
     private Rigidbody rb;   // Holds movment x and y
     private float movementX;
     private float movementY;
@@ -34,11 +37,21 @@ public class PlayerController : MonoBehaviour
         movementX = movementVector.x;
         movementY = movementVector.y;
     }
-    
+
     // Called by the Input System when jump is performed
     private void OnJump()
     {
         rb.AddForce(Vector3.up * speed, ForceMode.Impulse);
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Pickup"))
+        {
+            other.gameObject.SetActive(false);
+            score++;
+            scoreText.text = "Score: " + score.ToString();
+        }
     }
 
 }
