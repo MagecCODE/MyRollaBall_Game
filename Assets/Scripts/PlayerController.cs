@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
+    public GameObject winTextObject;
     private int score =0;
     public float speed = 8.0f;
     private Rigidbody rb;   // Holds movment x and y
@@ -17,6 +18,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        SetCountText();
+        
+        winTextObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,6 +31,11 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 
         rb.AddForce(movement * speed);
+
+        if (rb.position.y < -1f)
+        {
+            FindAnyObjectByType<GameManager>().EngGame();
+        }
     }
 
     // Called by the Input System when movement is performed
@@ -43,14 +53,25 @@ public class PlayerController : MonoBehaviour
     {
         rb.AddForce(Vector3.up * speed, ForceMode.Impulse);
     }
-    
-    private void OnTriggerEnter(Collider other)
+
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Pickup"))
         {
             other.gameObject.SetActive(false);
             score++;
-            scoreText.text = "Score: " + score.ToString();
+            SetCountText();
+        }
+    }
+
+    void SetCountText()
+    {
+        scoreText.text = score.ToString();
+
+        if (score >= 10)
+        {
+            FindAnyObjectByType<GameManager>().CompleteLevel();
+            winTextObject.SetActive(true);
         }
     }
 

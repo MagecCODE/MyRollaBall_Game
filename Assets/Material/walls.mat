@@ -26,10 +26,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _Metallic: 1
     m_Colors:
-    - _BaseColor: {r: 0.0769402, g: 0.1792453, b: 0.0769402, a: 1}
-    - _Color: {r: 0.07694017, g: 0.17924526, b: 0.07694017, a: 1}
+    - _BaseColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+    - _Color: {r: 0.29999998, g: 0.29999998, b: 0.29999998, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7476495521155232829
