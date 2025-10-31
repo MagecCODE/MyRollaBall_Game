@@ -7,12 +7,15 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
-    public GameObject winTextObject;
+    public GameObject winTextObject;   
+    public float groundDistance = 0.4f;
+    public float jumpForce = 10f;   
     private int score =0;
-    public float speed = 8.0f;
+    public float speed = 0f;
     private Rigidbody rb;   // Holds movment x and y
     private float movementX;
     private float movementY;
+    private bool isGrounded;
 
     //Start is called before the first frame update
     void Start()
@@ -31,11 +34,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 
         rb.AddForce(movement * speed);
-
-        if (rb.position.y < -1f)
-        {
-            FindAnyObjectByType<GameManager>().EngGame();
-        }
+        EndGame();
     }
 
     // Called by the Input System when movement is performed
@@ -51,7 +50,11 @@ public class PlayerController : MonoBehaviour
     // Called by the Input System when jump is performed
     private void OnJump()
     {
-        rb.AddForce(Vector3.up * speed, ForceMode.Impulse);
+        // Check if the player is grounded by creating a sphere at the groundCheck position with a radius of groundDistance and checking if it collides with any objects on the ground layer
+        if (!isGrounded) return;
+
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        isGrounded = false;       
     }
 
     void OnTriggerEnter(Collider other)
@@ -68,10 +71,26 @@ public class PlayerController : MonoBehaviour
     {
         scoreText.text = score.ToString();
 
-        if (score >= 10)
+        if (score >= 2)
         {
             FindAnyObjectByType<GameManager>().CompleteLevel();
             winTextObject.SetActive(true);
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    void EndGame()
+    {
+        if (rb.position.y < -1f)
+        {
+            FindAnyObjectByType<GameManager>().EngGame();
         }
     }
 
