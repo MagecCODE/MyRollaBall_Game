@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     public GameObject player; // Will reference the player game object's position
     private Vector3 offset; // Will set the offset position from the player to the camera
+    public Transform fallbackTarget; // Fallback target if player is null
     
     void Start()
     {
@@ -15,7 +16,13 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         // Sets the camera to where the player is plus the offset set above
-        transform.position = player.transform.position + offset;
-    }
-    
+        if (player != null)
+        {
+            transform.position = player.transform.position + offset;
+        }
+        else if (fallbackTarget != null)
+        {
+            transform.position = fallbackTarget.position + offset;
+        }
+    }    
 }

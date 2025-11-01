@@ -13,15 +13,21 @@ public class LevelComplete : MonoBehaviour
 
     private IEnumerator LoadNextLevelWithDelay()
     {
+        // Using yield to wait for the specified delay and coroutine method
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        int maxScenesIndex = SceneManager.sceneCountInBuildSettings -1;
 
-
-    /*
-    public void LoadNextLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (nextSceneIndex <= maxScenesIndex)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        // Load main menu if last level is completed
+        if(SceneManager.GetActiveScene().buildIndex == maxScenesIndex)
+        {
+            Debug.Log("FINAL LEVEL!");
+            SceneManager.LoadScene("Main Menu"); 
+        }
     }
-    */
+    
 }
