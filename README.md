@@ -6,20 +6,25 @@
 
 ***TIEMBLA NINTENDO, PLAYSTATION y XBOX***, My Roll a Ball Game - DEMO es una demo técnica para comprender los principios del desarrollo en ***UNITY*** y si todo sale bien 
 vender millones de copias en todas las plataformas 😊
+
 ## Comenzando 🚀
 
-Puedes hacer un clonado del repositorio y comenzar a trabajar en tu UNITY y Visual Studio Code, para jugar a nivel de código, o ejecutar el build para probar la demo.
+Puedes hacer un clonado del repositorio y comenzar a trabajar en tu UNITY y Visual Studio Code, para jugar a nivel de código y una vez tengas el IDE ejecutar el build para crear el instalador y probar la demo.
 
 ### Pre-requisitos 📋
 
 Necesitas instalar Unity y preferiblemente Visual Studio Code. 
 Para mover la demo necesitas una RTX 5090, I9 Ultra y una Tv 55" OLED 4k 🤓
+
 **Siempre viene bien un poco de humor**
-Pero fuera bromas, la build para probar la demo esta realizada en Windows ***LO SIENTO***, asi que no me seas cabra de instalarla en otro sistema que no sea Windows.
+
+Pero fuera bromas, por motivos de compatibilidad con Git, la carpeta Builds no se puede subir y esta contemplada en el .gitignore.
 
 ### Instalación 🔧
 
-Solo clonar el repositorio en tu carpeta, y una vez lo tengas clonado en la carpte Builds encontraras el ejecutable.
+Solo clonar el repositorio en tu carpeta, y una vez lo tengas clonado y tengas el paquete Unity instalado te facilito un enlace para hacer la build y puedas ejecutar la demo.
+
+* [Crear Builds en Unity](https://learn.unity.com/course/roll-a-ball/tutorial/building-the-game?version=6.0) - Parte del tutorial Unity donde se explica el Build del ejecutable.
 
 ## Construido con 🛠️
 

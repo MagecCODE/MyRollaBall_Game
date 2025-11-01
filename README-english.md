@@ -6,7 +6,7 @@ Welcome to this one-of-a-kind entertainment experience!
 
 ## Getting Started 🚀
 
-You can clone the repository and start working in UNITY and Visual Studio Code to play around with the code, or run the build to test the demo.
+You can clone the repository and start working in UNITY and Visual Studio Code to play around with the code, once you have the IDE, run the build to create the installer and test the demo.
 
 ### Prerequisites 📋
 
@@ -15,11 +15,13 @@ To run the demo, you’ll need an RTX 5090, I9 Ultra, and a 55" OLED 4K TV 🤓
 
 **A little humor never hurts**
 
-But seriously, the build was made for Windows ***SORRY***, so don’t be a goat and try to install it on anything other than Windows.
+But seriously, for Git compatibility reasons, the Builds folder cannot be uploaded and is covered in the .gitignore file.
 
 ### Installing 🔧
 
-Just clone the repository into your folder, and once it’s cloned, you’ll find the executable in the Builds folder.
+Just clone the repository to your folder, and once you have it cloned and the Unity package installed, I'll give you a link to build it and run the demo.
+
+* [Creating Builds in Unity](https://learn.unity.com/course/roll-a-ball/tutorial/building-the-game?version=6.0) - Part of the Unity tutorial where the build of the executable is explained.
 
 ## Built With 🛠️
 
@@ -31,7 +33,7 @@ My Roll a Ball Game - DEMO was built using the following technologies:
 
 ## Authors ✒️
 
-My Roll a Ball Game - DEMO has been developed by a single author—me.
+My Roll a Ball Game - DEMO has been developed by a single author **me**.
 
 * **Samuel Alonso** - *Full-Stack Developer* - [S@Mu](https://github.com/MagecCODE) 
 
